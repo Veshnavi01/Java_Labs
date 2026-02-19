@@ -1,5 +1,5 @@
-[Program-1 Program to add two distances](# Assi-1)
-[Program-2 Program to print multiples of input values](# Assi-2)
+[Program-1 Program to add two distances](#Assi-1)
+[Program-2 Program to print multiples of input values](#Assi-2)
 
 ## Assi-1
 ```
