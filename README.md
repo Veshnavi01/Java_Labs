@@ -2,6 +2,8 @@
 
 [Program-2 Program to print multiples of input values](#Assi-2)
 
+[Program-3 Program to make a calculator](#Assi-3)
+
 ## Assi-1
 ```
 import java.util.Scanner;
@@ -105,3 +107,45 @@ class Test {
 }
 ```
 <img width="302" height="266" alt="image" src="https://github.com/user-attachments/assets/852a9dd8-8e0f-461a-a6d2-f8851c982208" />
+
+## Assi-3
+```
+public class Calculator {
+    void add(int a, int b) {
+        System.out.println("Addition = " + (a+b));
+    }  
+
+    void subtract(int a, int b) {
+        System.out.println("Subtraction = " + (a-b));
+    }
+
+    void multiply(int a, int b) {
+        System.out.println("Multiplication = " + (a*b));
+    }
+
+    void divide(double a, double b) {
+        System.out.println("Division = " + (a/b));
+    }
+
+    void modulo(int a, int b) {
+        System.out.println("Modulo = " + (a%b));
+    }
+    public static void main(String[] args) {
+            Calculator c1 = new Calculator();
+            c1.add(5,3);
+            c1.subtract(5,3);
+            c1.multiply(5,3);
+            c1.divide(5,3);
+            c1.modulo(5,3);
+        }
+    }
+    ```
+
+
+
+
+
+
+
+
+
