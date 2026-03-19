@@ -418,6 +418,52 @@ class Test1{
 ```
 <img width="401" height="407" alt="image" src="https://github.com/user-attachments/assets/0eaea47c-8eda-4f6f-8c77-7e7636c0ef1d" />
 
+## Assi-7
+```
+import java.util.Scanner;
+
+public class Time {
+     public static void main(String[] args) {
+        Test1 o1 = new Test1();
+        Test1 o2 = new Test1();
+        Test1 o3 = new Test1();
+        o1.input();
+        o2.input();
+        o3.add(o1,o2);
+        o3.output();  
+     }
+}
+
+class Test1{
+    int hr;
+    int min;
+    
+    void input(){
+        Scanner sc1 =  new Scanner(System.in);
+        System.out.println("Enter the time in hr:");
+        hr = sc1.nextInt();
+        Scanner sc2 =  new Scanner(System.in);
+        System.out.println("Enter the time in min:");
+        min = sc2.nextInt();
+        
+    }
+    void output(){
+       System.out.println("Total time = "+hr+"hr"+min+"min");
+    }
+    void add(Test1 t1,Test1 t2){
+        hr = t1.hr+t2.hr;
+        min = t1.min+t2.min;
+        if(min >= 60){
+            hr+=1;
+            min = min-60;
+        }
+        
+    }
+}
+```
+<img width="381" height="320" alt="image" src="https://github.com/user-attachments/assets/0edd9a3d-8e75-43c6-8314-fdced7dc6be1" />
+
+
 
 
 
