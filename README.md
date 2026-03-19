@@ -1,16 +1,16 @@
-[Program-1 Program to add two distances](#Assi-1) 
+[Program-1 Program to add two distances given in m, mm and cm](#Assi-1) 
 
-[Program-2 Program to print multiples of input values](#Assi-2)
+[Program-2 Program to add two distances given in km and m](#Assi-2)
 
-[Program-3 Program to make a calculator](#Assi-3)
+[Program-3 Program to print multiples of input values](#Assi-3)
 
-[Program-4 Program to check whether a number is armstrong number or not](#Assi-4)
+[Program-4 Program to perform 5 arithmetic operations](#Assi-4)
 
-[Program-5 Program to check whether a number is palindrome or not](#Assi-5)
+[Program-5 5 C language programs in java: Armstrong, Palindrome, Fibonacci Series, Factorial, Pattern](#Assi-5)
 
-[Program-6 Program to print the factorial of a given number](#Assi-6)
+[Program-6 Program to add two times given in hrs, min and sec](#Assi-6)
 
-[Program-7 Program to print fibbonacci series](#Assi-7)
+[Program-7 Program to add two times given in hrs and min ](#Assi-7)
 
 ## Assi-1
 ```
@@ -73,6 +73,56 @@ class Test1{
 ```
 import java.util.Scanner;
 
+public class Distance {
+    public static void main(String[] args){
+        Adddistance o1 = new Adddistance();
+        Adddistance o2 = new Adddistance();
+        Adddistance o3 = new Adddistance();
+        o1.input();
+        o2.input();
+        o3.add(o1,o2);
+        o3.output();    
+    }
+    
+}
+
+
+class Adddistance{
+    int m;
+    int km;
+    
+    void input(){
+        Scanner sc1 =  new Scanner(System.in);
+        System.out.println("Enter the distance in km:");
+        km = sc1.nextInt();
+        Scanner sc2 =  new Scanner(System.in);
+        System.out.println("Enter the distance in m:");
+        m = sc2.nextInt();
+       
+        
+    }
+    void output(){
+       System.out.println("Total Distance = "+km+"km"+m+"m");
+      
+    }
+    void add(Adddistance d1,Adddistance d2){
+        km = d1.km+d2.km;
+        m = d1.m+d2.m;
+        if(m >= 1000){
+            km+=1;
+            m = m-1000;
+        }
+        
+    }
+}
+```
+<img width="381" height="321" alt="image" src="https://github.com/user-attachments/assets/a099960d-3671-4673-8ed4-80dc1525c705" />
+
+
+## Assi-3
+```
+import java.util.Scanner;
+
 public class veshnavi {
     public static void main(String[] args) {
         System.out.println("Hello");
@@ -116,7 +166,7 @@ class Test {
 ```
 <img width="302" height="266" alt="image" src="https://github.com/user-attachments/assets/852a9dd8-8e0f-461a-a6d2-f8851c982208" />
 
-## Assi-3
+## Assi-4
 ```
 public class Calculator {
     void add(int a, int b) {
@@ -151,21 +201,48 @@ public class Calculator {
 <img width="294" height="193" alt="image" src="https://github.com/user-attachments/assets/0cc23c87-1a89-4d4a-ae23-50e2e485c086" />
 
 
-## Assi-4
+## Assi-5
 ```
 import java.util.Scanner;
-public class ArmstrongNumber {
+public class Fivefunctions {
+    
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        System.out.print("Enter a number: ");
+        Scanner sc1 = new Scanner(System.in);
+        Scanner sc2 = new Scanner(System.in);
+        Scanner sc3 = new Scanner(System.in);
+        Scanner sc4 = new Scanner(System.in);
+        Scanner sc5 = new Scanner(System.in);
+        
+        System.out.print("Enter a number to check Armstrong: ");
         int n = sc.nextInt();
-
         Armstrong obj = new Armstrong(n); 
         obj.check(); 
+        
+        System.out.print("Enter a number to check Palindrome: ");
+        int n1 = sc1.nextInt();
+        PalindromeNumber p1 = new PalindromeNumber(n1);
+        p1.check();
+        
+        System.out.print("Enter a number to find it's factorial: ");
+        int n2 = sc2.nextInt();
+        FactorialNumber Num1 = new FactorialNumber(n2);
+        Num1.calculate();
+
+        System.out.print("Enter number of terms to print fibonacci series: ");
+        int num = sc3.nextInt();
+        FibonacciSeries fib = new FibonacciSeries(num);
+        fib.printSeries(); 
+        
+        System.out.println("Enter number of rows and columns to print square pattern: ");
+        int n4 = sc4.nextInt();
+        int n5 = sc5.nextInt();
+        Pattern pa = new Pattern(n4,n5);
+        pa.display();
     }
-}
     
+}
     
 
 class Armstrong {
@@ -194,24 +271,7 @@ class Armstrong {
         }
     }
 }
-```
-<img width="323" height="137" alt="image" src="https://github.com/user-attachments/assets/b692f321-b170-474b-a42b-abe2b1a5d0b8" />
-<img width="294" height="136" alt="image" src="https://github.com/user-attachments/assets/9fdc9b74-b0b8-465d-a386-dc66e77bf3cf" />
 
-## Assi-5
-```
-import java.util.Scanner;
-public class Palindrome {
-    public static void main(String[]args){
-        
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the number:");
-        int n = sc.nextInt();
-        
-        PalindromeNumber p1 = new PalindromeNumber(n);
-        p1.check();
-    } 
-}
 class PalindromeNumber{
     
     int num,num1;
@@ -239,27 +299,6 @@ class PalindromeNumber{
         }
     }
 }
-```
-<img width="325" height="166" alt="image" src="https://github.com/user-attachments/assets/d48e6de4-b519-4636-9fba-0d96da87fa23" />
-<img width="297" height="154" alt="image" src="https://github.com/user-attachments/assets/80a75505-d739-405d-8fae-d09dfd490697" />
-
-
-## Assi-6
-```
-import java.util.Scanner;
-
-public class Factorial {
-    public static void main(String[]args){
-        
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter a number:");
-        int n = sc.nextInt();
-        
-        FactorialNumber Num1 = new FactorialNumber(n);
-        Num1.calculate();
-        
-    }
-}
 
 class FactorialNumber{
     
@@ -277,25 +316,6 @@ class FactorialNumber{
         System.out.println("Factorial = "+result);
     }
 }
-```
-<img width="291" height="140" alt="image" src="https://github.com/user-attachments/assets/e065c569-c616-43e9-b06a-4df445d2307b" />
-
-## Assi-7
-```
-import java.util.Scanner;
-
-public class Fibonacci {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-
-        System.out.print("Enter number of terms: ");
-        int num = sc.nextInt();
-
-        FibonacciSeries obj = new FibonacciSeries(num); // object creation
-        obj.printSeries(); // method call
-    }
-    
-}
 
 class FibonacciSeries {
     int n;
@@ -311,7 +331,7 @@ class FibonacciSeries {
         int b = 1;
         int c;
 
-        System.out.print("Fibonacci Series: ");
+        System.out.println("Fibonacci Series: ");
 
         for (int i = 1; i <= n; i++) {
             System.out.print(a + " ");
@@ -319,15 +339,84 @@ class FibonacciSeries {
             a = b;
             b = c;
         }
+        System.out.println();
+    }
+}
+
+class Pattern{
+    int r,c;
+    
+    Pattern(int r, int c){
+        this.r = r;
+        this.c = c;
+    }
+    
+    void display(){
+        
+        for(int i = 0; i<r; i++){
+            for(int j = 0; j<c; j++){
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
     }
 }
 ```
-<img width="294" height="139" alt="image" src="https://github.com/user-attachments/assets/dfa15769-4e44-40c4-9ee1-216d11432b57" />
+<img width="576" height="483" alt="image" src="https://github.com/user-attachments/assets/3b72be99-b1d1-4b64-a121-935e1e8ea52d" />
 
+## Assi-6
+```
+import java.util.Scanner;
 
+public class Time {
+     public static void main(String[] args) {
+        Test1 o1 = new Test1();
+        Test1 o2 = new Test1();
+        Test1 o3 = new Test1();
+        o1.input();
+        o2.input();
+        o3.add(o1,o2);
+        o3.output();  
+     }
+}
 
-
-
+class Test1{
+    int hr;
+    int min;
+    int sec;
+    
+    void input(){
+        Scanner sc1 =  new Scanner(System.in);
+        System.out.println("Enter the time in hr:");
+        hr = sc1.nextInt();
+        Scanner sc2 =  new Scanner(System.in);
+        System.out.println("Enter the time in min:");
+        min = sc2.nextInt();
+        Scanner sc3 =  new Scanner(System.in);
+        System.out.println("Enter the time in sec:");
+        sec = sc3.nextInt();
+        
+    }
+    void output(){
+       System.out.println("Total time = "+hr+"hr"+min+"min"+sec+"sec");
+    }
+    void add(Test1 t1,Test1 t2){
+        hr = t1.hr+t2.hr;
+        min = t1.min+t2.min;
+        sec = t1.sec+t2.sec;
+        if(sec >= 60){
+            min+=1;
+            sec = sec-60;
+        }
+        if(min >= 60){
+            hr+=1;
+            min = min-60;
+        }
+        
+    }
+}
+```
+<img width="401" height="407" alt="image" src="https://github.com/user-attachments/assets/0eaea47c-8eda-4f6f-8c77-7e7636c0ef1d" />
 
 
 
