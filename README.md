@@ -10,7 +10,9 @@
 
 [Program-6 Program to add two times given in hrs, min and sec](#Assi-6)
 
-[Program-7 Program to add two times given in hrs and min ](#Assi-7)
+[Program-7 Program to add two times given in hrs and min](#Assi-7)
+
+[Program-8 Program to reverse a given number using 4 functions: input, idisplay, reverse, revdisplay](#Assi-8)
 
 ## Assi-1
 ```
@@ -463,6 +465,51 @@ class Test1{
 ```
 <img width="381" height="320" alt="image" src="https://github.com/user-attachments/assets/0edd9a3d-8e75-43c6-8314-fdced7dc6be1" />
 
+## Assi-8
+```
+import java.util.Scanner;
+
+public class Reversing {
+    public static void main(String[] args){
+        
+        Reverse o1 = new Reverse();
+        o1.input();
+        o1.idisplay();
+        o1.reverse();
+        o1.revdisplay();
+        
+       
+    }
+}
+
+class Reverse{
+    int n;
+    
+    void idisplay(){
+        System.out.println("Original number = "+n);
+    }
+    
+    void input(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a number:");
+        int n = sc.nextInt();
+    }
+    
+    void reverse(){
+        int rem;
+        int result = 0;
+        while(n>0){
+        rem = n%10;
+        result = result*10 + rem;
+        n = n/10;
+        }
+    }
+        
+     void revdisplay(){
+        System.out.println("Reversed Number = "+result);
+    }   
+}
+```
 
 
 
