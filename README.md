@@ -484,6 +484,7 @@ public class Reversing {
 
 class Reverse{
     int n;
+    int result;
     
     void idisplay(){
         System.out.println("Original number = "+n);
@@ -492,12 +493,12 @@ class Reverse{
     void input(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter a number:");
-        int n = sc.nextInt();
+        n = sc.nextInt();
     }
     
     void reverse(){
         int rem;
-        int result = 0;
+        result = 0;
         while(n>0){
         rem = n%10;
         result = result*10 + rem;
@@ -510,6 +511,7 @@ class Reverse{
     }   
 }
 ```
+<img width="296" height="90" alt="image" src="https://github.com/user-attachments/assets/7f7f2e0c-da89-4091-9c69-812c7d839b02" />
 
 
 
