@@ -14,6 +14,8 @@
 
 [Program-8 Program to reverse a given number using 4 functions: input, idisplay, reverse, revdisplay](#Assi-8)
 
+[Program-9 Program to do matrix operations](#Assi-9)
+
 ## Assi-1
 ```
 import java.util.Scanner;
@@ -512,6 +514,11 @@ class Reverse{
 }
 ```
 <img width="296" height="90" alt="image" src="https://github.com/user-attachments/assets/7f7f2e0c-da89-4091-9c69-812c7d839b02" />
+
+## Assi-9
+```
+
+```
 
 
 
