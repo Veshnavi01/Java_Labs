@@ -517,8 +517,87 @@ class Reverse{
 
 ## Assi-9
 ```
+import java.util.Scanner;
+public class MatrixOperations {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int rows, cols;
+        // Input matrix size
+        System.out.print("Enter number of rows: ");
+        rows = sc.nextInt();
+        System.out.print("Enter number of columns: ");
+        cols = sc.nextInt();
+        int[][] A = new int[rows][cols];
+        int[][] B = new int[rows][cols];
+        // Input Matrix A
+        System.out.println("Enter elements of Matrix A:");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                A[i][j] = sc.nextInt();
+            }
+        }
+        // Input Matrix B
+        System.out.println("Enter elements of Matrix B:");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                B[i][j] = sc.nextInt();
+            }
+        }
+        // Matrix Addition
+        int[][] sum = new int[rows][cols];
+        System.out.println("\nMatrix Addition:");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                sum[i][j] = A[i][j] + B[i][j];
+                System.out.print(sum[i][j] + " ");
+            }
+            System.out.println();
+        }
+        // Transpose of Matrix A
+        System.out.println("\nTranspose of Matrix A:");
+        for (int i = 0; i < cols; i++) {
+            for (int j = 0; j < rows; j++) {
+                System.out.print(A[j][i] + " ");
+            }
+            System.out.println();
+        }
+        // Sum of Rows (Matrix A)
+        System.out.println("\nSum of each row (Matrix A):");
+        for (int i = 0; i < rows; i++) {
+            int rowSum = 0;
+            for (int j = 0; j < cols; j++) {
+                rowSum += A[i][j];
+            }
+            System.out.println("Row " + (i + 1) + " sum = " + rowSum);
+        }
+        // Sum of Columns (Matrix A)
+        System.out.println("\nSum of each column (Matrix A):");
+        for (int j = 0; j < cols; j++) {
+            int colSum = 0;
+            for (int i = 0; i < rows; i++) {
+                colSum += A[i][j];
+            }
+            System.out.println("Column " + (j + 1) + " sum = " + colSum);
+        }
+        // Sum of Diagonals (Matrix A)
+        if (rows == cols) {
+            int primaryDiagonal = 0, secondaryDiagonal = 0;
 
+            for (int i = 0; i < rows; i++) {
+                primaryDiagonal += A[i][i];
+                secondaryDiagonal += A[i][rows - i - 1];
+            }
+            System.out.println("\nPrimary diagonal sum = " + primaryDiagonal);
+            System.out.println("Secondary diagonal sum = " + secondaryDiagonal);
+        } else {
+            System.out.println("\nDiagonal sums not possible (Matrix is not square).");
+        }
+        sc.close();
+    }
+}
 ```
+<img width="323" height="526" alt="image" src="https://github.com/user-attachments/assets/b3431eb1-5b9a-4e65-8cf5-9c6310763100" />
+<img width="362" height="255" alt="image" src="https://github.com/user-attachments/assets/413fdd1a-982d-49b0-94f9-6a9ecf42b4bc" />
 
 
 
