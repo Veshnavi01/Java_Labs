@@ -823,6 +823,15 @@ class Student3th extends Thread {
     }
 }
 ```
+<img width="141" height="789" alt="image" src="https://github.com/user-attachments/assets/b99d9260-57d0-4da6-8cbd-f0cfbea91842" />
+<img width="139" height="709" alt="image" src="https://github.com/user-attachments/assets/f2a22504-1227-4097-a694-5a6e6b103fde" />
+<img width="142" height="772" alt="image" src="https://github.com/user-attachments/assets/b21eb629-ad36-48b9-9175-1bb9d5dac44d" />
+<img width="131" height="770" alt="image" src="https://github.com/user-attachments/assets/07ede5c9-291c-45ad-9d4b-c0423a7d016e" />
+<img width="129" height="773" alt="image" src="https://github.com/user-attachments/assets/2c8a46eb-e6d3-457a-a3bd-539abd981f5d" />
+<img width="142" height="774" alt="image" src="https://github.com/user-attachments/assets/db3333a9-3081-4c38-aa75-4b32bca78fea" />
+<img width="139" height="774" alt="image" src="https://github.com/user-attachments/assets/8884da39-6bc8-4d5a-a3dd-62714caaab86" />
+<img width="135" height="774" alt="image" src="https://github.com/user-attachments/assets/9ad5b84e-6b5d-4230-8139-893e9a58822e" />
+<img width="366" height="437" alt="image" src="https://github.com/user-attachments/assets/e0e04a74-adaa-45cb-ae74-36b927bccf3a" />
 
 
 ## Assi-12
@@ -876,6 +885,7 @@ public class Add {
     }
 }
 ```
+<img width="230" height="182" alt="image" src="https://github.com/user-attachments/assets/8e392859-97c8-450f-bd82-8516c6a645ac" />
 
 
 ## Assi-13
@@ -910,8 +920,7 @@ public class InterfaceInheritance {
     }
 }
 ```
-
-
+<img width="558" height="91" alt="image" src="https://github.com/user-attachments/assets/88cd740c-fafe-4934-afe4-2faf8d23e518" />
 
 ```
 abstract class Shape {
@@ -951,6 +960,7 @@ public class AbstractInheritance {
     }
 }
 ```
+<img width="553" height="90" alt="image" src="https://github.com/user-attachments/assets/66439441-92a8-4bf7-aeb8-3f69a56f3c72" />
 
 ## Assi-14
 ```
@@ -1025,6 +1035,12 @@ public class Calculator {
     }
 }
 ```
+<img width="231" height="182" alt="image" src="https://github.com/user-attachments/assets/48fa72ad-d99b-4c45-9d39-924efdb1e7e6" />
+<img width="232" height="181" alt="image" src="https://github.com/user-attachments/assets/12e157d3-49a3-4978-808a-82dc3eac11ef" />
+<img width="229" height="181" alt="image" src="https://github.com/user-attachments/assets/9c3e921c-3733-4e55-be64-2c3b11b340e4" />
+<img width="230" height="179" alt="image" src="https://github.com/user-attachments/assets/0bf70cd8-b731-4f19-be3e-9b7d1fb84933" />
+
+
 
 ## Assi-15
 ```
@@ -1118,6 +1134,8 @@ public class MatrixAdd {
     }
 }
 ```
+<img width="315" height="118" alt="image" src="https://github.com/user-attachments/assets/e35d4daa-b177-45eb-8d0d-18315d2de7cb" />
+<img width="452" height="238" alt="image" src="https://github.com/user-attachments/assets/4cb09acd-3d2c-497d-94ee-58efdf86787b" />
 
 
 ## Assi-16
@@ -1212,6 +1230,10 @@ public class ShapesDemo {
     }
 }
 ```
+<img width="353" height="200" alt="image" src="https://github.com/user-attachments/assets/de942b41-22f2-4fe3-a9a8-ed8a66fc7b10" />
+<img width="354" height="196" alt="image" src="https://github.com/user-attachments/assets/08e49859-cb46-4cc4-9687-37936bd5890e" />
+
+
 
 ## Assi-17
 ```
@@ -1230,28 +1252,23 @@ public class PaintBrush extends JFrame {
         setSize(600, 500);
         setLayout(new FlowLayout());
 
-        // Color buttons
         JButton red = new JButton("Red");
         JButton green = new JButton("Green");
         JButton blue = new JButton("Blue");
 
-        // Size selector
         String sizes[] = {"5", "10", "15", "20"};
         JComboBox<String> cb = new JComboBox<>(sizes);
 
         add(red); add(green); add(blue); add(new JLabel("Size")); add(cb);
 
-        // Color actions
         red.addActionListener(e -> color = Color.RED);
         green.addActionListener(e -> color = Color.GREEN);
         blue.addActionListener(e -> color = Color.BLUE);
 
-        // Size action
         cb.addActionListener(e -> {
             size = Integer.parseInt((String)cb.getSelectedItem());
         });
 
-        // Mouse events
         addMouseMotionListener(new MouseMotionAdapter() {
             public void mouseDragged(MouseEvent e) {
                 Graphics g = getGraphics();
@@ -1269,6 +1286,9 @@ public class PaintBrush extends JFrame {
     }
 }
 ```
+<img width="439" height="368" alt="image" src="https://github.com/user-attachments/assets/efa08a36-3223-4540-810d-e809993131eb" />
+
+
 
 ## Assi-18
 ```
