@@ -18,7 +18,32 @@
 
 [Program-10 Program using 3 classes to print 1-100, 3 times with and without thread and analyse it's output. And repeat the same program using runnable interface.](#Assi-10)
 
-[Program-11 Using the concept of multithreading the output of these threads is unpredictable and all the threads must be synchronised, use join method.](#Assi-11)
+[Program-11 Using the concept of multithreading the output of these threads is unpredictable and all the threads must be synchronised (use join method).](#Assi-11)
+
+[Program-12 Write a program for addition of 2 numbers using swing.](#Assi-12)
+
+[Program-13 Inheritance Programs, using interface and abstract classes.](#Assi-13)
+
+[Program-14 Make one calculator in swing.](#Assi-14)
+
+[Program-15 Matrix Addition using swing class.](#Assi-15)
+
+[Program-16  Create one jframe apply 10 buttons on that after clicking on each button a new
+structure is created.(Circle, oval rectangle, etc ....).](#Assi-16)
+
+[Program-17 Just using mouse Event create a frame like paint brush with selection of colour and width.](#Assi-17)
+
+[Program-18 Create a package of any 5 classes of your choice and import it.](#Assi-18)
+
+[Program-19 Create one package and sub package  import and test it.](#Assi-19)
+
+[Program-20 Create one small array of size 5 apply array out of bounds exception using try catch give a proper message in catch and demonstrate the exception exactly in the same fashion demonstrate arithmetic exception.](#Assi-20)
+
+[Program-21 To test the range of age of one student.write a program using user defined exception.](#Assi-21)
+
+[Program-22 File Handling Programs (given in the PPT).](#Assi-22)
+
+[Program-23 Make a registration form with 10 elements and send the data into database (use jdbc connectivity).](#Assi-23)
 
 ## Assi-1
 ```
@@ -753,11 +778,719 @@ class th3 implements Runnable{
 
 ## Assi-11
 ```
+public class Test {
+    public static void main(String[] args) {
+        Student1th s1 = new Student1th();
+        Student2th s2 = new Student2th();
+        Student3th s3 = new Student3th();
 
+        try {
+            s1.start();
+            s1.join();   // wait until s1 finishes
+
+            s2.start();
+            s2.join();   // wait until s2 finishes
+
+            s3.start();
+            s3.join();   // wait until s3 finishes
+        } catch (InterruptedException e) {
+            System.out.println(e);
+        }
+    }
+}
+
+class Student1th extends Thread {
+    public void run() {
+        for (int i = 1; i <= 100; i++) {
+            System.out.println("Student1 : " + i);
+        }
+    }
+}
+
+class Student2th extends Thread {
+    public void run() {
+        for (int i = 1; i <= 100; i++) {
+            System.out.println("Student2 : " + i);
+        }
+    }
+}
+
+class Student3th extends Thread {
+    public void run() {
+        for (int i = 1; i <= 100; i++) {
+            System.out.println("Student3 : " + i);
+        }
+    }
+}
+```
+
+
+## Assi-12
+```
+import javax.swing.*;
+
+public class Add {
+    public static void main(String[] args) {
+        JFrame f = new JFrame("Addition");
+
+        JLabel l1 = new JLabel("Enter Number 1:");
+        JLabel l2 = new JLabel("Enter Number 2:");
+        JLabel l3 = new JLabel("Result:");
+
+        JTextField t1 = new JTextField();
+        JTextField t2 = new JTextField();
+        JTextField t3 = new JTextField();
+
+        JButton b = new JButton("Add");
+
+        l1.setBounds(30, 30, 120, 30);
+        t1.setBounds(160, 30, 100, 30);
+
+        l2.setBounds(30, 70, 120, 30);
+        t2.setBounds(160, 70, 100, 30);
+
+        b.setBounds(90, 110, 80, 30);
+
+        l3.setBounds(30, 150, 120, 30);
+        t3.setBounds(160, 150, 100, 30);
+
+        f.add(l1); 
+        f.add(t1);
+        f.add(l2); 
+        f.add(t2);
+        f.add(b);
+        f.add(l3); 
+        f.add(t3);
+
+        // Button action
+        b.addActionListener(e -> {
+            int a = Integer.parseInt(t1.getText());
+            int b1 = Integer.parseInt(t2.getText());
+            t3.setText(String.valueOf(a + b1));
+        });
+
+        f.setSize(320, 250);
+        f.setLayout(null);
+        f.setVisible(true);
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+}
+```
+
+
+## Assi-13
+```
+interface Shape {
+    void area();
+}
+
+class Rectangle implements Shape {
+    int length = 10, breadth = 5;
+
+    public void area() {
+        System.out.println("Area of Rectangle = " + (length * breadth));
+    }
+}
+
+class Circle implements Shape {
+    int radius = 7;
+
+    public void area() {
+        System.out.println("Area of Circle = " + (3.14 * radius * radius));
+    }
+}
+
+public class InterfaceInheritance {
+    public static void main(String[] args) {
+        Rectangle r = new Rectangle();
+        Circle c = new Circle();
+
+        r.area();
+        c.area();
+    }
+}
 ```
 
 
 
+```
+abstract class Shape {
+    abstract void area();
 
+    void display() {
+        System.out.println("Calculating Area...");
+    }
+}
+
+class Rectangle extends Shape {
+    int length = 10, breadth = 5;
+
+    void area() {
+        System.out.println("Area of Rectangle = " + (length * breadth));
+    }
+}
+
+class Circle extends Shape {
+    int radius = 7;
+
+    void area() {
+        System.out.println("Area of Circle = " + (3.14 * radius * radius));
+    }
+}
+
+public class AbstractInheritance {
+    public static void main(String[] args) {
+        Rectangle r = new Rectangle();
+        Circle c = new Circle();
+
+        r.display();
+        r.area();
+
+        c.display();
+        c.area();
+    }
+}
+```
+
+## Assi-14
+```
+import javax.swing.*;
+import java.awt.event.*;
+
+public class Calculator {
+    public static void main(String[] args) {
+        JFrame f = new JFrame("Calculator");
+
+        JLabel l1 = new JLabel("Enter Number 1:");
+        JLabel l2 = new JLabel("Enter Number 2:");
+        JLabel l3 = new JLabel("Result:");
+
+        JTextField t1 = new JTextField();
+        JTextField t2 = new JTextField();
+        JTextField t3 = new JTextField();
+
+        JButton add = new JButton("+");
+        JButton sub = new JButton("-");
+        JButton mul = new JButton("*");
+        JButton div = new JButton("/");
+
+        l1.setBounds(30, 30, 120, 30);
+        t1.setBounds(160, 30, 100, 30);
+
+        l2.setBounds(30, 70, 120, 30);
+        t2.setBounds(160, 70, 100, 30);
+
+        l3.setBounds(30, 110, 120, 30);
+        t3.setBounds(160, 110, 100, 30);
+
+        add.setBounds(30, 160, 50, 30);
+        sub.setBounds(90, 160, 50, 30);
+        mul.setBounds(150, 160, 50, 30);
+        div.setBounds(210, 160, 50, 30);
+
+        f.add(l1); f.add(t1);
+        f.add(l2); f.add(t2);
+        f.add(l3); f.add(t3);
+
+        f.add(add); f.add(sub); f.add(mul); f.add(div);
+
+        add.addActionListener(e -> {
+            int a = Integer.parseInt(t1.getText());
+            int b = Integer.parseInt(t2.getText());
+            t3.setText(String.valueOf(a + b));
+        });
+
+        sub.addActionListener(e -> {
+            int a = Integer.parseInt(t1.getText());
+            int b = Integer.parseInt(t2.getText());
+            t3.setText(String.valueOf(a - b));
+        });
+
+        mul.addActionListener(e -> {
+            int a = Integer.parseInt(t1.getText());
+            int b = Integer.parseInt(t2.getText());
+            t3.setText(String.valueOf(a * b));
+        });
+
+        div.addActionListener(e -> {
+            int a = Integer.parseInt(t1.getText());
+            int b = Integer.parseInt(t2.getText());
+            t3.setText(String.valueOf(a / b));
+        });
+
+        f.setSize(320, 250);
+        f.setLayout(null);
+        f.setVisible(true);
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+}
+```
+
+## Assi-15
+```
+import javax.swing.*;
+import java.awt.event.*;
+
+public class MatrixAdd {
+    public static void main(String[] args) {
+
+        JFrame f = new JFrame("Dynamic Matrix Addition");
+
+        JLabel sizeLabel = new JLabel("Enter Size:");
+        JTextField sizeField = new JTextField();
+        JButton create = new JButton("Create Matrix");
+
+        sizeLabel.setBounds(50, 20, 100, 30);
+        sizeField.setBounds(150, 20, 50, 30);
+        create.setBounds(220, 20, 130, 30);
+
+        f.add(sizeLabel);
+        f.add(sizeField);
+        f.add(create);
+
+        create.addActionListener(e -> {
+            int n = Integer.parseInt(sizeField.getText());
+
+            JTextField[][] A = new JTextField[n][n];
+            JTextField[][] B = new JTextField[n][n];
+            JTextField[][] C = new JTextField[n][n];
+
+            JLabel l1 = new JLabel("Matrix A");
+            JLabel l2 = new JLabel("Matrix B");
+            JLabel l3 = new JLabel("Result");
+
+            l1.setBounds(50, 70, 100, 20);
+            l2.setBounds(250, 70, 100, 20);
+            l3.setBounds(450, 70, 100, 20);
+
+            f.add(l1); f.add(l2); f.add(l3);
+
+            int x = 50, y = 100;
+
+            for(int i=0;i<n;i++){
+                for(int j=0;j<n;j++){
+                    A[i][j] = new JTextField();
+                    A[i][j].setBounds(x + j*50, y + i*40, 40, 30);
+                    f.add(A[i][j]);
+                }
+            }
+
+            x = 250;
+            for(int i=0;i<n;i++){
+                for(int j=0;j<n;j++){
+                    B[i][j] = new JTextField();
+                    B[i][j].setBounds(x + j*50, y + i*40, 40, 30);
+                    f.add(B[i][j]);
+                }
+            }
+            
+            x = 450;
+            for(int i=0;i<n;i++){
+                for(int j=0;j<n;j++){
+                    C[i][j] = new JTextField();
+                    C[i][j].setBounds(x + j*50, y + i*40, 40, 30);
+                    C[i][j].setEditable(false);
+                    f.add(C[i][j]);
+                }
+            }
+
+            JButton add = new JButton("Add");
+            add.setBounds(250, y + n*50, 80, 30);
+            f.add(add);
+
+            add.addActionListener(ev -> {
+                for(int i=0;i<n;i++){
+                    for(int j=0;j<n;j++){
+                        int a = Integer.parseInt(A[i][j].getText());
+                        int b = Integer.parseInt(B[i][j].getText());
+                        C[i][j].setText(String.valueOf(a + b));
+                    }
+                }
+            });
+
+            f.repaint();
+        });
+
+        f.setSize(700, 500);
+        f.setLayout(null);
+        f.setVisible(true);
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+}
+```
+
+
+## Assi-16
+```
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+class MyFrame extends JFrame implements ActionListener {
+
+    String shape = "";
+
+    JButton b1, b2, b3, b4, b5, b6, b7, b8, b9, b10;
+
+    MyFrame() {
+        setTitle("Shapes");
+        setSize(500, 500);
+        setLayout(new FlowLayout());
+
+        b1 = new JButton("Circle");
+        b2 = new JButton("Oval");
+        b3 = new JButton("Rectangle");
+        b4 = new JButton("Square");
+        b5 = new JButton("Line");
+        b6 = new JButton("Arc");
+        b7 = new JButton("RoundRect");
+        b8 = new JButton("3D Rect");
+        b9 = new JButton("Fill Circle");
+        b10 = new JButton("Fill Rect");
+
+        add(b1); add(b2); add(b3); add(b4); add(b5);
+        add(b6); add(b7); add(b8); add(b9); add(b10);
+
+        b1.addActionListener(this);
+        b2.addActionListener(this);
+        b3.addActionListener(this);
+        b4.addActionListener(this);
+        b5.addActionListener(this);
+        b6.addActionListener(this);
+        b7.addActionListener(this);
+        b8.addActionListener(this);
+        b9.addActionListener(this);
+        b10.addActionListener(this);
+
+        setVisible(true);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        shape = e.getActionCommand();
+        repaint();
+    }
+
+    public void paint(Graphics g) {
+        super.paint(g);
+
+        if (shape.equals("Circle"))
+            g.drawOval(200, 150, 100, 100);
+
+        else if (shape.equals("Oval"))
+            g.drawOval(180, 150, 140, 80);
+
+        else if (shape.equals("Rectangle"))
+            g.drawRect(200, 150, 120, 80);
+
+        else if (shape.equals("Square"))
+            g.drawRect(200, 150, 100, 100);
+
+        else if (shape.equals("Line"))
+            g.drawLine(200, 150, 300, 250);
+
+        else if (shape.equals("Arc"))
+            g.drawArc(200, 150, 100, 100, 0, 180);
+
+        else if (shape.equals("RoundRect"))
+            g.drawRoundRect(200, 150, 120, 80, 20, 20);
+
+        else if (shape.equals("3D Rect"))
+            g.draw3DRect(200, 150, 120, 80, true);
+
+        else if (shape.equals("Fill Circle"))
+            g.fillOval(200, 150, 100, 100);
+
+        else if (shape.equals("Fill Rect"))
+            g.fillRect(200, 150, 120, 80);
+    }
+}
+
+public class ShapesDemo {
+    public static void main(String[] args) {
+        new MyFrame();
+    }
+}
+```
+
+## Assi-17
+```
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class PaintBrush extends JFrame {
+
+    int x, y;
+    Color color = Color.BLACK;
+    int size = 5;
+
+    public PaintBrush() {
+        setTitle("Paint Brush");
+        setSize(600, 500);
+        setLayout(new FlowLayout());
+
+        // Color buttons
+        JButton red = new JButton("Red");
+        JButton green = new JButton("Green");
+        JButton blue = new JButton("Blue");
+
+        // Size selector
+        String sizes[] = {"5", "10", "15", "20"};
+        JComboBox<String> cb = new JComboBox<>(sizes);
+
+        add(red); add(green); add(blue); add(new JLabel("Size")); add(cb);
+
+        // Color actions
+        red.addActionListener(e -> color = Color.RED);
+        green.addActionListener(e -> color = Color.GREEN);
+        blue.addActionListener(e -> color = Color.BLUE);
+
+        // Size action
+        cb.addActionListener(e -> {
+            size = Integer.parseInt((String)cb.getSelectedItem());
+        });
+
+        // Mouse events
+        addMouseMotionListener(new MouseMotionAdapter() {
+            public void mouseDragged(MouseEvent e) {
+                Graphics g = getGraphics();
+                g.setColor(color);
+                g.fillOval(e.getX(), e.getY(), size, size);
+            }
+        });
+
+        setVisible(true);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
+    public static void main(String[] args) {
+        new PaintBrush();
+    }
+}
+```
+
+## Assi-18
+```
+package mypack;
+
+public class A {
+    public void showA() {
+        System.out.println("Class A method");
+    }
+}
+```
+```
+package mypack;
+
+public class B {
+    public void showB() {
+        System.out.println("Class B method");
+    }
+}
+```
+```
+package mypack;
+
+public class C {
+    public void showC() {
+        System.out.println("Class C method");
+    }
+}
+```
+```
+package mypack;
+
+public class D {
+    public void showD() {
+        System.out.println("Class D method");
+    }
+}
+```
+```
+package mypack;
+
+public class E {
+    public void showE() {
+        System.out.println("Class E method");
+    }
+}
+```
+```
+import mypack.*;
+
+public class TestPackage {
+    public static void main(String[] args) {
+
+        A a = new A();
+        B b = new B();
+        C c = new C();
+        D d = new D();
+        E e = new E();
+
+        a.showA();
+        b.showB();
+        c.showC();
+        d.showD();
+        e.showE();
+    }
+}
+```
+## Assi-19
+```
+package mypack;
+
+public class A {
+    public void showA() {
+        System.out.println("Class A in mypack");
+    }
+}
+```
+```
+package mypack.subpack;
+
+public class B {
+    public void showB() {
+        System.out.println("Class B in subpackage");
+    }
+}
+```
+```
+import mypack.A;
+import mypack.subpack.B;
+
+public class Test {
+    public static void main(String[] args) {
+
+        A a = new A();
+        B b = new B();
+
+        a.showA();
+        b.showB();
+    }
+}
+```
+
+## Assi-20
+```
+public class ExceptionDemo {
+    public static void main(String[] args) {
+
+        try {
+            int arr[] = new int[5];
+
+            arr[0] = 10;
+            arr[1] = 20;
+            arr[2] = 30;
+            arr[3] = 40;
+            arr[4] = 50;
+            arr[5] = 60;
+
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Error: Array index is out of bounds!");
+        }
+
+        try {
+            int a = 10;
+            int b = 0;
+
+            int result = a / b; 
+
+        } catch (ArithmeticException e) {
+            System.out.println("Error: Cannot divide by zero!");
+        }
+
+        System.out.println("Program continues after handling exceptions...");
+    }
+}
+```
+
+## Assi-21
+```
+class InvalidAgeException extends Exception {
+    InvalidAgeException(String msg) {
+        super(msg);
+    }
+}
+
+public class AgeTest {
+
+    static void checkAge(int age) throws InvalidAgeException {
+        if (age < 18 || age > 25) {
+            throw new InvalidAgeException("Age must be between 18 and 25!");
+        } else {
+            System.out.println("Valid age. Student allowed.");
+        }
+    }
+
+    public static void main(String[] args) {
+
+        int age = 16; // change value to test
+
+        try {
+            checkAge(age);
+        } catch (InvalidAgeException e) {
+            System.out.println("Exception: " + e.getMessage());
+        }
+    }
+}
+```
+
+## Assi-22
+```
+import java.io.*;
+
+public class CharFileCopy {
+    public static void main(String[] args) {
+        try {
+            FileReader fr = new FileReader("source.txt");
+            FileWriter fw = new FileWriter("dest_char.txt");
+
+            int ch;
+
+            while ((ch = fr.read()) != -1) {
+                fw.write(ch);
+            }
+
+            fr.close();
+            fw.close();
+
+            System.out.println("File copied using character stream");
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+}
+```
+```
+import java.io.*;
+
+public class ByteFileCopy {
+    public static void main(String[] args) {
+        try {
+            FileInputStream fis = new FileInputStream("source.txt");
+            FileOutputStream fos = new FileOutputStream("dest_byte.txt");
+
+            int b;
+
+            while ((b = fis.read()) != -1) {
+                fos.write(b);
+            }
+
+            fis.close();
+            fos.close();
+
+            System.out.println("File copied using byte stream");
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+}
+```
+
+## Assi-23
+```
+
+```
 
 
