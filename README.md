@@ -43,6 +43,8 @@ structure is created.(Circle, oval rectangle, etc ....).](#Assi-16)
 
 [Program-22 File Handling Programs (given in the PPT).](#Assi-22)
 
+[Program-23 Program to make an ArrayList and using various methods of LinkedList.](#Assi-23)
+
 [Program-23 Make a registration form with 10 elements and send the data into database (use jdbc connectivity).](#Assi-23)
 
 ## Assi-1
@@ -1356,6 +1358,9 @@ public class TestPackage {
     }
 }
 ```
+<img width="367" height="245" alt="image" src="https://github.com/user-attachments/assets/450120f8-c0c4-4da1-8c74-40137b2210a9" />
+
+
 ## Assi-19
 ```
 package mypack;
@@ -1390,6 +1395,9 @@ public class Test {
     }
 }
 ```
+<img width="370" height="186" alt="image" src="https://github.com/user-attachments/assets/66e9a62c-98c4-4ba2-a547-816fd68457fc" />
+
+
 
 ## Assi-20
 ```
@@ -1424,6 +1432,8 @@ public class ExceptionDemo {
     }
 }
 ```
+<img width="443" height="215" alt="image" src="https://github.com/user-attachments/assets/c7cce9b1-ab36-4666-8297-db665552f8b6" />
+
 
 ## Assi-21
 ```
@@ -1455,6 +1465,8 @@ public class AgeTest {
     }
 }
 ```
+<img width="399" height="166" alt="image" src="https://github.com/user-attachments/assets/61eb4d90-d47d-4499-b55d-ba8dfbc7f7c6" />
+
 
 ## Assi-22
 ```
@@ -1510,7 +1522,136 @@ public class ByteFileCopy {
 
 ## Assi-23
 ```
+import java.util.*;
+public class ArrayListDemo {
+    public static void main(String[] args){
+        ArrayList<String>list = new ArrayList<>();
+        list.add("Apple");
+        list.add("Banana");
+        list.add("Mango");
+        
+        list.add(1,"Orange");
+        
+        System.out.println("Element at index 2: "+ list.get(2));
+        
+        list.set(0,"Grapes");
+        list.remove("Banana");
+        
+        System.out.println("Size: "+ list.size());
+        
+        System.out.println("Contains Mangoes?"+ list.contains("Mango"));
+        
+        System.out.println("List Elements:");
+        for(String item: list){
+            System.out.println(item);
+        }        
+        
+        list.clear();
+        System.out.println("Is empty?"+ list.isEmpty());
+    }
+}
+```
+<img width="366" height="313" alt="image" src="https://github.com/user-attachments/assets/e0d519f5-9da3-4214-bfb6-8058e519fcc9" />
 
 ```
+import java.util.*;
+public class LinkedListExample {
+    public static void main(String[] args){
+        LinkedList<String> list = new LinkedList<>();
+        
+        list.add("Apple");
+        list.addFirst("Banana");
+        list.addLast("Mango");
+        
+        System.out.println("First: "+ list.getFirst());
+        System.out.println("Last: "+ list.getLast());
+        
+        list.set(1,"orange");
+        list.removeFirst();
+        list.removeLast();
+        
+        System.out.println("Size: "+ list.size());
+        
+        System.out.println("List Elements:");
+        for(String item: list){
+            System.out.println(item);
+        } 
+        
+        System.out.println("Contains Orange?"+ list.contains("Orange")); 
+        
+        list.clear();
+        System.out.println("Is empty?"+ list.isEmpty());
+        
+    }
+}
+```
+<img width="374" height="280" alt="image" src="https://github.com/user-attachments/assets/c2170e24-7a3d-4627-93c0-cc43a70a7072" />
 
 
+```
+import java.util.Stack;
+
+public class Main {
+    public static void main(String[] args) {
+        Stack<Integer> stack = new Stack<>();
+
+        // Push elements
+        stack.push(10);
+        stack.push(20);
+        stack.push(30);
+
+        System.out.println("Stack: " + stack);
+
+        // Peek top element
+        System.out.println("Top element: " + stack.peek());
+
+        // Pop element
+        System.out.println("Removed: " + stack.pop());
+
+        System.out.println("Stack after pop: " + stack);
+    }
+}
+```
+<img width="368" height="223" alt="image" src="https://github.com/user-attachments/assets/544dc195-2fa6-4e49-87f4-1d340cf2cee4" />
+
+
+```
+import java.util.HashMap;
+
+public class Main1 {
+    public static void main(String[] args) {
+        HashMap<Integer, String> map = new HashMap<>();
+
+        map.put(1, "Apple");
+        map.put(2, "Banana");
+        map.put(3, "Mango");
+
+        System.out.println(map.get(2)); // Banana
+
+        map.remove(1);
+
+        System.out.println(map.containsKey(3)); // true
+    }
+}
+```
+<img width="370" height="183" alt="image" src="https://github.com/user-attachments/assets/7f5544c8-22f1-4662-af70-e83b565f1e8e" />
+
+
+```
+import java.util.Hashtable;
+
+public class Main1 {
+    public static void main(String[] args) {
+
+        Hashtable<Integer, String> ht = new Hashtable<>();
+
+        ht.put(10, "A");
+        ht.put(20, "B");
+
+        System.out.println(ht.get(10));
+    }
+}
+```
+<img width="376" height="170" alt="image" src="https://github.com/user-attachments/assets/9ba4f84f-fbc2-45ed-9020-b4ffdc7624c9" />
+
+## Assi-24
