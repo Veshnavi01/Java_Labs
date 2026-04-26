@@ -43,9 +43,8 @@ structure is created.(Circle, oval rectangle, etc ....).](#Assi-16)
 
 [Program-22 File Handling Programs (given in the PPT).](#Assi-22)
 
-[Program-23 Program to make an ArrayList and using various methods of LinkedList.](#Assi-23)
+[Program-23 5 programs using java data structures.](#Assi-23)
 
-[Program-23 Make a registration form with 10 elements and send the data into database (use jdbc connectivity).](#Assi-23)
 
 ## Assi-1
 ```
@@ -1398,7 +1397,6 @@ public class Test {
 <img width="370" height="186" alt="image" src="https://github.com/user-attachments/assets/66e9a62c-98c4-4ba2-a547-816fd68457fc" />
 
 
-
 ## Assi-20
 ```
 public class ExceptionDemo {
@@ -1494,6 +1492,7 @@ public class CharFileCopy {
     }
 }
 ```
+
 ```
 import java.io.*;
 
@@ -1654,4 +1653,3 @@ public class Main1 {
 ```
 <img width="376" height="170" alt="image" src="https://github.com/user-attachments/assets/9ba4f84f-fbc2-45ed-9020-b4ffdc7624c9" />
 
-## Assi-24
