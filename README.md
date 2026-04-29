@@ -1049,6 +1049,7 @@ import javax.swing.*;
 import java.awt.event.*;
 
 public class MatrixAdd {
+
     public static void main(String[] args) {
 
         JFrame f = new JFrame("Dynamic Matrix Addition");
@@ -1059,79 +1060,88 @@ public class MatrixAdd {
 
         sizeLabel.setBounds(50, 20, 100, 30);
         sizeField.setBounds(150, 20, 50, 30);
-        create.setBounds(220, 20, 130, 30);
+        create.setBounds(220, 20, 150, 30);
 
         f.add(sizeLabel);
         f.add(sizeField);
         f.add(create);
 
-        create.addActionListener(e -> {
-            int n = Integer.parseInt(sizeField.getText());
-
-            JTextField[][] A = new JTextField[n][n];
-            JTextField[][] B = new JTextField[n][n];
-            JTextField[][] C = new JTextField[n][n];
-
-            JLabel l1 = new JLabel("Matrix A");
-            JLabel l2 = new JLabel("Matrix B");
-            JLabel l3 = new JLabel("Result");
-
-            l1.setBounds(50, 70, 100, 20);
-            l2.setBounds(250, 70, 100, 20);
-            l3.setBounds(450, 70, 100, 20);
-
-            f.add(l1); f.add(l2); f.add(l3);
-
-            int x = 50, y = 100;
-
-            for(int i=0;i<n;i++){
-                for(int j=0;j<n;j++){
-                    A[i][j] = new JTextField();
-                    A[i][j].setBounds(x + j*50, y + i*40, 40, 30);
-                    f.add(A[i][j]);
-                }
-            }
-
-            x = 250;
-            for(int i=0;i<n;i++){
-                for(int j=0;j<n;j++){
-                    B[i][j] = new JTextField();
-                    B[i][j].setBounds(x + j*50, y + i*40, 40, 30);
-                    f.add(B[i][j]);
-                }
-            }
-            
-            x = 450;
-            for(int i=0;i<n;i++){
-                for(int j=0;j<n;j++){
-                    C[i][j] = new JTextField();
-                    C[i][j].setBounds(x + j*50, y + i*40, 40, 30);
-                    C[i][j].setEditable(false);
-                    f.add(C[i][j]);
-                }
-            }
-
-            JButton add = new JButton("Add");
-            add.setBounds(250, y + n*50, 80, 30);
-            f.add(add);
-
-            add.addActionListener(ev -> {
-                for(int i=0;i<n;i++){
-                    for(int j=0;j<n;j++){
-                        int a = Integer.parseInt(A[i][j].getText());
-                        int b = Integer.parseInt(B[i][j].getText());
-                        C[i][j].setText(String.valueOf(a + b));
-                    }
-                }
-            });
-
-            f.repaint();
-        });
-
-        f.setSize(700, 500);
         f.setLayout(null);
+        f.setSize(800, 600);
         f.setVisible(true);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        create.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+
+                int n = Integer.parseInt(sizeField.getText());
+
+                JTextField[][] A = new JTextField[n][n];
+                JTextField[][] B = new JTextField[n][n];
+                JTextField[][] C = new JTextField[n][n];
+
+                JLabel l1 = new JLabel("Matrix A");
+                JLabel l2 = new JLabel("Matrix B");
+                JLabel l3 = new JLabel("Result");
+
+                l1.setBounds(50, 70, 100, 20);
+                l2.setBounds(250, 70, 100, 20);
+                l3.setBounds(450, 70, 100, 20);
+
+                f.add(l1);
+                f.add(l2);
+                f.add(l3);
+
+                int y = 100;
+
+                // MATRIX A, B, C creation
+                for (int i = 0; i < n; i++) {
+                    for (int j = 0; j < n; j++) {
+
+                        A[i][j] = new JTextField();
+                        A[i][j].setBounds(50 + j * 50, y + i * 40, 40, 30);
+                        f.add(A[i][j]);
+
+                        B[i][j] = new JTextField();
+                        B[i][j].setBounds(250 + j * 50, y + i * 40, 40, 30);
+                        f.add(B[i][j]);
+
+                        C[i][j] = new JTextField();
+                        C[i][j].setBounds(450 + j * 50, y + i * 40, 40, 30);
+                        C[i][j].setEditable(false);
+                        f.add(C[i][j]);
+                    }
+                }
+
+                JButton add = new JButton("Add");
+                add.setBounds(250, y + n * 50, 100, 30);
+                f.add(add);
+
+                add.addActionListener(new ActionListener() {
+                    public void actionPerformed(ActionEvent ev) {
+
+                        for (int i = 0; i < n; i++) {
+                            for (int j = 0; j < n; j++) {
+
+                                int a = 0, b = 0;
+
+                                try {
+                                    a = Integer.parseInt(A[i][j].getText());
+                                    b = Integer.parseInt(B[i][j].getText());
+                                } catch (Exception ex) {
+                                    JOptionPane.showMessageDialog(f, "Enter valid numbers only!");
+                                    return;
+                                }
+
+                                C[i][j].setText(String.valueOf(a + b));
+                            }
+                         }
+                    }
+                });
+
+                f.repaint();
+            }
+        });
     }
 }
 ```
