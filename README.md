@@ -1143,91 +1143,89 @@ public class MatrixAdd {
 ```
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
 
-class MyFrame extends JFrame implements ActionListener {
+class ShapesDemo {
+    public static void main(String[] args){
 
-    String shape = "";
+        JFrame f = new JFrame("Shapes");
+        f.setSize(700,700);
+        f.setLayout(null);
 
-    JButton b1, b2, b3, b4, b5, b6, b7, b8, b9, b10;
+        JButton b1 = new JButton("Circle");
+        JButton b2 = new JButton("Rectangle");
+        JButton b3 = new JButton("Square");
+        JButton b4 = new JButton("Line");
+        JButton b5 = new JButton("Fill Circle");
 
-    MyFrame() {
-        setTitle("Shapes");
-        setSize(500, 500);
-        setLayout(new FlowLayout());
+        b1.setBounds(30,20,120,60);
+        b2.setBounds(30,100,120,60);
+        b3.setBounds(30,180,120,60);    
+        b4.setBounds(30,260,120,60);
+        b5.setBounds(30,340,120,60);
 
-        b1 = new JButton("Circle");
-        b2 = new JButton("Oval");
-        b3 = new JButton("Rectangle");
-        b4 = new JButton("Square");
-        b5 = new JButton("Line");
-        b6 = new JButton("Arc");
-        b7 = new JButton("RoundRect");
-        b8 = new JButton("3D Rect");
-        b9 = new JButton("Fill Circle");
-        b10 = new JButton("Fill Rect");
+        f.add(b1);
+        f.add(b2);  
+        f.add(b3);
+        f.add(b4);
+        f.add(b5);
 
-        add(b1); add(b2); add(b3); add(b4); add(b5);
-        add(b6); add(b7); add(b8); add(b9); add(b10);
+        String[] shape = {""};
+        
 
-        b1.addActionListener(this);
-        b2.addActionListener(this);
-        b3.addActionListener(this);
-        b4.addActionListener(this);
-        b5.addActionListener(this);
-        b6.addActionListener(this);
-        b7.addActionListener(this);
-        b8.addActionListener(this);
-        b9.addActionListener(this);
-        b10.addActionListener(this);
+        JPanel panel = new JPanel(){
+            protected void paintComponent(Graphics g){
+                super.paintComponent(g);
 
-        setVisible(true);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    }
+                if(shape[0].equals("Circle"))
+                    g.drawOval(100, 150, 100, 100);
+                else if(shape[0].equals("Rectangle"))
+                    g.drawRect(100,150,100,60);
+                else if(shape[0].equals("Square"))
+                    g.drawRect(100,150,50,50);
+                else if(shape[0].equals("Line"))
+                    g.drawLine(100,150,100,100);
+                else if(shape[0].equals("Fill Circle"))
+                    g.fillOval(100,150,100,100);
+            }
+        };
 
-    public void actionPerformed(ActionEvent e) {
-        shape = e.getActionCommand();
-        repaint();
-    }
+        panel.setBounds(150, 50, 220, 250);
+        f.add(panel);
 
-    public void paint(Graphics g) {
-        super.paint(g);
+        b1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent e) {
+                shape[0] = "Circle";
+                panel.repaint();
+         }
+        });
+        b2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent e) {
+                shape[0] = "Rectangle";
+                panel.repaint();
+         }
+        });
+        b3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent e) {
+                shape[0] = "Square";
+                panel.repaint();
+         }
+        });
+        b4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent e) {
+                shape[0] = "Line";
+                panel.repaint();
+         }
+        });
+        b5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent e) {
+                shape[0] = "Fill Circle";
+                panel.repaint();
+         }
+        });
 
-        if (shape.equals("Circle"))
-            g.drawOval(200, 150, 100, 100);
+        f.setVisible(true);
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        else if (shape.equals("Oval"))
-            g.drawOval(180, 150, 140, 80);
-
-        else if (shape.equals("Rectangle"))
-            g.drawRect(200, 150, 120, 80);
-
-        else if (shape.equals("Square"))
-            g.drawRect(200, 150, 100, 100);
-
-        else if (shape.equals("Line"))
-            g.drawLine(200, 150, 300, 250);
-
-        else if (shape.equals("Arc"))
-            g.drawArc(200, 150, 100, 100, 0, 180);
-
-        else if (shape.equals("RoundRect"))
-            g.drawRoundRect(200, 150, 120, 80, 20, 20);
-
-        else if (shape.equals("3D Rect"))
-            g.draw3DRect(200, 150, 120, 80, true);
-
-        else if (shape.equals("Fill Circle"))
-            g.fillOval(200, 150, 100, 100);
-
-        else if (shape.equals("Fill Rect"))
-            g.fillRect(200, 150, 120, 80);
-    }
-}
-
-public class ShapesDemo {
-    public static void main(String[] args) {
-        new MyFrame();
     }
 }
 ```
